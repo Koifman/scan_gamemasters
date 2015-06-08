@@ -133,7 +133,6 @@ def is_gm(text):
     return "Panda Cub" in text
 
 
-
 def save_gm_to_file(name, realm, armory_url):
     with open("gms.txt", "a") as f:
         f.write("%s (%s) %s" % (name, realm, armory_url))
