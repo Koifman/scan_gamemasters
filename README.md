@@ -29,3 +29,5 @@ To scan specific region (default is EU):
 To scan only for German realms, for example:
 
 >python main.py --region=eu --locale=de_DE
+
+Note: I am not associated with Blizzard Entertainment

@@ -130,10 +130,8 @@ def is_gm(text):
     """
     Search for "Panda Cub" pet, which most gamemasters apparently possess
     """
-    if text.find("Panda Cub") != -1:
-        return True
-    else:
-        return False
+    return "Panda Cub" in text
+
 
 
 def save_gm_to_file(name, realm, armory_url):
