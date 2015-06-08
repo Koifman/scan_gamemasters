@@ -8,7 +8,7 @@ It then saves character to a file. It also submits it to a website that aggregat
 
 To make viewing script results more convenient, I made a website: http://wow-gm-track.website/ It tries to hide false positives (and there are a lot of them!) by displaying characters that received at least 4 collector's editions in one day. It also shows additional information (such as total CE count, level, guild, twinks).
 
-Not every character on the list on the website belongs to Blizzard employee. But the rule of thumb is: the more CE he obtained in one day, the more likely he is the one we are looking for. For example, if he obtained 6-7 and more CE in one day, he is likely to be Blizzard employee.
+Not every character on the list on the website belongs to Blizzard employee. But the rule of thumb is: the more CE he obtained in one day, the more likely he is the one we are looking for. For example, if he obtained 6-7 and more CE in one day, he is likely (but not guaranteed, of course) to be Blizzard employee.
 
 Usage:
 
