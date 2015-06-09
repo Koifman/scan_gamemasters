@@ -217,7 +217,7 @@ def insert_chars_from_guild(realm, guild_name, chars_to_scan):
     session.commit()
 
 
-def main(realms_to_scan, randomize_order):
+def start_scan(realms_to_scan, randomize_order):
     if randomize_order:
         random.shuffle(realms_to_scan)
     stats = Statistics()
@@ -302,7 +302,7 @@ def get_eng_rlm_name(name, region):
                                "Available locales: "
                                "de_DE en_GB en_US es_ES es_MX fr_FR it_IT pt_BR ru_RU")
 @click.option('--randomize', is_flag=True, help="Randomize the order in which realms are scanned.")
-def start(region, realm, locale, randomize):
+def main(region, realm, locale, randomize):
     """
     Find probable Blizzard employee's characters in World of Warcraft using battle.net API.
     """
@@ -333,8 +333,8 @@ def start(region, realm, locale, randomize):
     if not realms_to_scan:
         click.echo("Could not find any realms with parameters you specified.")
         sys.exit()
-    main(realms_to_scan, randomize_order=randomize)
+    start_scan(realms_to_scan, randomize_order=randomize)
 
 
 if __name__ == "__main__":
-    start()
+    main()
