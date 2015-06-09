@@ -1,5 +1,4 @@
 # This Python file uses the following encoding: utf-8
-import json
 import os
 import random
 import time
@@ -76,8 +75,7 @@ def load_json_from_url(url):
         if "Refresh" not in r.headers:
             break
         time.sleep(1)
-    data = json.loads(r.text)
-    return data
+    return r.json()
 
 
 def load_auction_data(realm):
@@ -88,8 +86,7 @@ def load_auction_data(realm):
     except KeyError:
         logging.exception("Can't get auction dump url. Response from api: %s" % str(data))
         raise
-    data = load_json_from_url(auction_dump_url)
-    return data
+    return load_json_from_url(auction_dump_url)
 
 
 def get_realm(region, realm_name):
@@ -178,7 +175,7 @@ def scan_character(char, chars_to_scan):
         return char
 
     # now add all members of the guild to database
-    data = json.loads(r.text)
+    data = r.json()
     if "guild" in data:
         guild_name = data["guild"]["name"]
         if guild_name not in guilds_scanned:
@@ -268,7 +265,7 @@ def populate_realms_db():
         locales = regions[region]
         for locale in locales:
             r = requests.get(url.format(region=region, locale=locale))
-            data = json.loads(r.text)
+            data = r.json()
             for realm in data["realms"]:
                 if realm["locale"] == locale:
                     english_name = get_eng_rlm_name(realm["slug"], region)
@@ -290,7 +287,7 @@ def get_eng_rlm_name(name, region):
     """
     url = "http://%s.battle.net/api/wow/realm/status?realms=%s" % (region, name)
     r = requests.get(url)
-    data = json.loads(r.text)
+    data = r.json()
     return data["realms"][0]["name"]
 
 
