@@ -150,7 +150,7 @@ def submit_gm(char):
     data = {
         "realm_slug": char.realm.slug,
         "char_name": char.name,
-        "region": char.realm.region
+        "region": char.realm.region,
     }
     try:
         requests.post("http://wow-gm-track.website/api/add_char", data=data)
